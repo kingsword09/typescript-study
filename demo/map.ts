@@ -97,11 +97,11 @@ export default class NewMap<K, V> implements IMap<K, V> {
         return this._keyValues().length;
     }
 
-    forEach(callbackfn: (value: V, key: K, map: Map<K, V>) => void, thisArg?: any): void {
+    forEach(callbackfn: (value: V, key: K, map: IMap<K, V>) => void, thisArg?: any): void {
         let keyValues = this._keyValues();
 
         for(let i = 0; i < keyValues.length; i++) {
-            callbackfn(keyValues[i].value, keyValues[i].key, new Map());
+            callbackfn(keyValues[i].value, keyValues[i].key, new NewMap());
         }
 
         return;
