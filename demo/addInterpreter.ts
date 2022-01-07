@@ -82,19 +82,19 @@ class Interpreter {
     }
 }
 
-function calc(rl: readline.Interface) {
+function calc(rl: readline.Interface): Promise<void> {
     return new Promise((resolve, reject) => {
         try {
             rl.question("calc> ", (text: string) => {
                 if(text === "") {
-                    return resolve && resolve(true);
+                    return resolve && resolve();
                 }
 
                 let interpreter: Interpreter = new Interpreter(text);
                 let result: number = interpreter.expr();
 
                 console.log(result);
-                return resolve && resolve(true);
+                return resolve && resolve();
             });
         } catch(e) {
             return reject && reject();
