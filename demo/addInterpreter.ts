@@ -11,6 +11,8 @@ class Token {
         if(type === "NUMBER") {
             this.value = +value;
         }
+
+	this.type = type;
     }
 
     public toString(): string {
